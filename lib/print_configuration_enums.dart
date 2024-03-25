@@ -30,7 +30,7 @@ extension PrintSizeExt on PrintSize {
       case PrintSize.A5:
         return [420, 595];
       case PrintSize.A6:
-        return [298, 420];
+        return [298, 30];
       case PrintSize.A7:
         return [210, 298];
       case PrintSize.A8:
