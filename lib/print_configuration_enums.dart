@@ -15,7 +15,7 @@ enum PrintSize {
 
 extension PrintSizeExt on PrintSize {
   /// Returns the printing pixel dimensions for `72 PPI`
-  List<int> get getDimensionsInPixels {
+  List<double> get getDimensionsInPixels {
     switch (this) {
       case PrintSize.A0:
         return [2384, 3370];
