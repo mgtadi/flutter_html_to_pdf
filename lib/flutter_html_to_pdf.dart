@@ -90,7 +90,7 @@ class FlutterHtmlToPdf {
   ) async {
     int width = printSize
         .getDimensionsInPixels[printOrientation.getWidthDimensionIndex];
-    int height = printSize
+    double height = printSize
         .getDimensionsInPixels[printOrientation.getHeightDimensionIndex];
 
     return await _channel.invokeMethod(
