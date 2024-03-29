@@ -40,7 +40,7 @@ extension PrintSizeExt on PrintSize {
       case PrintSize.A10:
         return [74, 105];
       case PrintSize.mm80:
-        return [227, 30];
+        return [227, 105];
     }
   }
 
