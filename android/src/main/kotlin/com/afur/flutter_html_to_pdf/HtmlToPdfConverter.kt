@@ -58,14 +58,14 @@ class HtmlToPdfConverter {
                 "PORTRAIT" -> mediaSize = mediaSize.asPortrait()
             }
             var margins = PrintAttributes.Margins(
-                            Double.valueOf(5 * 1000.0).intValue(),
-                            Double.valueOf(5 * 1000.0 / 72.0).intValue(),
-                            Double.valueOf(5 * 1000.0 / 72.0).intValue(),
-                            Double.valueOf(5 * 1000.0 / 72.0).intValue());
+                            (5 * 1000.0).toInt(),
+                            (5 * 1000.0 / 72.0).toInt(),
+                            (5 * 1000.0 / 72.0).toInt(),
+                            (5 * 1000.0 / 72.0).toInt());
             if (printSize == "mm80") {
                 mediaSize = PrintAttributes.MediaSize("flutter_printing", "Provided size",
-                            Double.valueOf(227 * 1000.0 / 72.0).intValue(),
-                            Double.valueOf(105 * 1000.0 / 72.0).intValue());
+                            (227 * 1000.0 / 72.0).toInt(),
+                            (105 * 1000.0 / 72.0).toInt());
             }
             val attributes = PrintAttributes.Builder()
                 .setMediaSize(mediaSize)
