@@ -11,6 +11,8 @@ enum PrintSize {
   A9,
   A10,
   mm80,
+  mm75,
+  mm58,
 }
 
 extension PrintSizeExt on PrintSize {
@@ -40,7 +42,11 @@ extension PrintSizeExt on PrintSize {
       case PrintSize.A10:
         return [74, 105];
       case PrintSize.mm80:
-        return [227, 105];
+        return [278, 310];
+      case PrintSize.mm75:
+        return [274, 310];
+      case PrintSize.mm58:
+        return [225, 310];
     }
   }
 
@@ -71,6 +77,10 @@ extension PrintSizeExt on PrintSize {
         return "A10";
       case PrintSize.mm80:
         return "mm80";
+      case PrintSize.mm75:
+        return "mm75";
+      case PrintSize.mm58:
+        return "mm58";
     }
   }
 }
