@@ -68,6 +68,18 @@ class HtmlToPdfConverter {
                             ( 278 * 1000.0 / 72.0).toInt(),
                            ( 310 * 1000.0 / 72.0).toInt());
             }
+            if (printSize == "mm75") {
+               
+                 mediaSize = PrintAttributes.MediaSize("flutter_printing", "Provided size",
+                            ( 274 * 1000.0 / 72.0).toInt(),
+                           ( 310 * 1000.0 / 72.0).toInt());
+            }
+            if (printSize == "mm58") {
+               
+                 mediaSize = PrintAttributes.MediaSize("flutter_printing", "Provided size",
+                            ( 225 * 1000.0 / 72.0).toInt(),
+                           ( 310 * 1000.0 / 72.0).toInt());
+            }
             val attributes = PrintAttributes.Builder()
                 .setMediaSize(mediaSize)
                 .setResolution(PrintAttributes.Resolution("pdf", "pdf", 300, 300))
