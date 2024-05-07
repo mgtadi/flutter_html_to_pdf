@@ -46,7 +46,7 @@ extension PrintSizeExt on PrintSize {
       case PrintSize.mm75:
         return [274, 310];
       case PrintSize.mm58:
-        return [225, 310];
+        return [208, 310];
     }
   }
 
