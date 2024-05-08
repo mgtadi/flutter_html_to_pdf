@@ -77,8 +77,8 @@ class HtmlToPdfConverter {
             if (printSize == "mm58") {
                
                  mediaSize = PrintAttributes.MediaSize("flutter_printing", "Provided size",
-                            ( 126 * 1000.0 / 72.0).toInt(),
-                           ( 310 * 1000.0 / 72.0).toInt());
+                            ( 186 * 1000.0 / 72.0).toInt(),
+                           ( 250 * 1000.0 / 72.0).toInt());
             }
             val attributes = PrintAttributes.Builder()
                 .setMediaSize(mediaSize)
