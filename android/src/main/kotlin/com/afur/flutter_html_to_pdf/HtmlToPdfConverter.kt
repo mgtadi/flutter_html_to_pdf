@@ -83,9 +83,10 @@ class HtmlToPdfConverter {
             val attributes = PrintAttributes.Builder()
                 .setMediaSize(mediaSize)
                 .setResolution(PrintAttributes.Resolution("pdf", "pdf", 100, 100))
-                .setMinMargins(PrintAttributes.Margins.NO_MARGINS).build()
+                .setMinMargins(PrintAttributes.Margins.NO_MARGINS).build();
+            webView.getSettings().setTextZoom(100);
 
-            val printer = PdfPrinter(attributes)
+            val printer = PdfPrinter(attributes);
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 val adapter = webView.createPrintDocumentAdapter(temporaryDocumentName)
