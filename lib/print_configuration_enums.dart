@@ -13,6 +13,7 @@ enum PrintSize {
   mm80,
   mm75,
   mm58,
+  in1812,
 }
 
 extension PrintSizeExt on PrintSize {
@@ -47,6 +48,8 @@ extension PrintSizeExt on PrintSize {
         return [274, 310];
       case PrintSize.mm58:
         return [208, 310];
+      case PrintSize.in1812:
+        return [172, 115];
     }
   }
 
@@ -81,6 +84,8 @@ extension PrintSizeExt on PrintSize {
         return "mm75";
       case PrintSize.mm58:
         return "mm58";
+      case PrintSize.in1812:
+        return "in1812";
     }
   }
 }
