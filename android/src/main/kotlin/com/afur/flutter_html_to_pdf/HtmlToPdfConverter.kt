@@ -80,6 +80,12 @@ class HtmlToPdfConverter {
                             ( 186 * 1000.0 / 72.0).toInt(),
                            ( 310 * 1000.0 / 72.0).toInt());
             }
+            if (printSize == "in1812") {
+               
+                 mediaSize = PrintAttributes.MediaSize("flutter_printing", "Provided size",
+                            ( 172 * 1000.0 / 72.0).toInt(),
+                           ( 115 * 1000.0 / 72.0).toInt());
+            }
             val attributes = PrintAttributes.Builder()
                 .setMediaSize(mediaSize)
                 .setResolution(PrintAttributes.Resolution("pdf", "pdf", 100, 100))
