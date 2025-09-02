@@ -19,8 +19,8 @@ class FlutterHtmlToPdf {
   static Future<File> convertFromHtmlContentIncWidthandHeight({
     required String htmlContent,
     required PrintPdfConfiguration printPdfConfiguration,
-    required Int width,
-    required Int height,
+    required int width,
+    required int height,
   }) async {
     final File temporaryCreatedHtmlFile =
         await FileUtils.createFileWithStringContent(
@@ -139,8 +139,8 @@ class FlutterHtmlToPdf {
     String htmlFilePath,
     PrintSize printSize,
     PrintOrientation printOrientation,
-    Int width,
-    Int height,
+    int width,
+    int height,
   ) async {
 
     return await _channel.invokeMethod(
