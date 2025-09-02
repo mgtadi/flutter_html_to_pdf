@@ -35,8 +35,8 @@ class HtmlToPdfConverter {
     }
 
     @SuppressLint("SetJavaScriptEnabled")
-    fun convertIncWidthAndHeight(filePath: String, applicationContext: Context, printSize: String, orientation: String, width: Int,
-                                 height: Int, callback: Callback) {
+    fun convertIncWidthAndHeight(filePath: String, applicationContext: Context, printSize: String, orientation: String, width: String,
+                                 height: String, callback: Callback) {
         val webView = WebView(applicationContext)
         val htmlContent = File(filePath).readText(Charsets.UTF_8)
         webView.settings.javaScriptEnabled = true
@@ -51,8 +51,8 @@ class HtmlToPdfConverter {
         }
     }
 
-    fun createPdfFromWebViewIncWidthandHeight(webView: WebView, applicationContext: Context, printSize: String, orientation: String, width: Int,
-                                              height: Int, callback: Callback) {
+    fun createPdfFromWebViewIncWidthandHeight(webView: WebView, applicationContext: Context, printSize: String, orientation: String, width: String,
+                                              height: String, callback: Callback) {
         val path = applicationContext.filesDir
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             var mediaSize = PrintAttributes.MediaSize.ISO_A4
@@ -66,10 +66,13 @@ class HtmlToPdfConverter {
                             (5 * 1000.0 / 72.0).toInt(),
                             (5 * 1000.0 / 72.0).toInt(),
                             (5 * 1000.0 / 72.0).toInt());
+
+            val width1 = width.toInt(); 
+             val height1 = width.toInt(); 
             
             mediaSize = PrintAttributes.MediaSize("flutter_printing", "Provided size",
-                            ( width * 1000.0 / 72.0).toInt(),
-                           ( height * 1000.0 / 72.0).toInt());
+                            ( width1 * 1000.0 / 72.0).toInt(),
+                           ( height1 * 1000.0 / 72.0).toInt());
             val attributes = PrintAttributes.Builder()
                 .setMediaSize(mediaSize)
                 .setResolution(PrintAttributes.Resolution("pdf", "pdf", 100, 100))
