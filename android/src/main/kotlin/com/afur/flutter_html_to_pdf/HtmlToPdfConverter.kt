@@ -35,8 +35,8 @@ class HtmlToPdfConverter {
     }
 
     @SuppressLint("SetJavaScriptEnabled")
-    fun convertIncWidthAndHeight(filePath: String, applicationContext: Context, printSize: String, orientation: String, width: int,
-                                 height: int, callback: Callback) {
+    fun convertIncWidthAndHeight(filePath: String, applicationContext: Context, printSize: String, orientation: String, width: Int,
+                                 height: Int, callback: Callback) {
         val webView = WebView(applicationContext)
         val htmlContent = File(filePath).readText(Charsets.UTF_8)
         webView.settings.javaScriptEnabled = true
@@ -51,8 +51,8 @@ class HtmlToPdfConverter {
         }
     }
 
-    fun createPdfFromWebViewIncWidthandHeight(webView: WebView, applicationContext: Context, printSize: String, orientation: String, width: int,
-                                              height: int, callback: Callback) {
+    fun createPdfFromWebViewIncWidthandHeight(webView: WebView, applicationContext: Context, printSize: String, orientation: String, width: Int,
+                                              height: Int, callback: Callback) {
         val path = applicationContext.filesDir
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             var mediaSize = PrintAttributes.MediaSize.ISO_A4
