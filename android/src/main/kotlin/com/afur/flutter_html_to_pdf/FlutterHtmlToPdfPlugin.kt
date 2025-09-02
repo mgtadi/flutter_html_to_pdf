@@ -24,6 +24,8 @@ class FlutterHtmlToPdfPlugin: FlutterPlugin, MethodCallHandler {
   override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
     if (call.method == "convertHtmlToPdf") {
       convertHtmlToPdf(call, result)
+    } else if (call.method == "convertHtmlToPdfIncWidthHeight") {
+      convertHtmlToPdfIncWidthAndHeight(call, result)
     } else {
       result.notImplemented()
     }
@@ -31,6 +33,24 @@ class FlutterHtmlToPdfPlugin: FlutterPlugin, MethodCallHandler {
 
   override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
     channel.setMethodCallHandler(null)
+  }
+
+  private fun convertHtmlToPdfIncWidthAndHeight(call: MethodCall, result: Result) {
+    val htmlFilePath = call.argument<String>("htmlFilePath")
+    val printSize = call.argument<String>("printSize")
+    val orientation = call.argument<String>("orientation")
+    val width = call.argument<int>("width")
+    val height = call.argument<int>("height")
+
+    HtmlToPdfConverter().convertIncWidthAndHeight(htmlFilePath!!, applicationContext, printSize!!, orientation!!,width!!,height!!, object : HtmlToPdfConverter.Callback {
+      override fun onSuccess(filePath: String) {
+        result.success(filePath)
+      }
+
+      override fun onFailure() {
+        result.error("ERROR", "Unable to convert html to pdf document!", "")
+      }
+    })
   }
 
   private fun convertHtmlToPdf(call: MethodCall, result: Result) {
