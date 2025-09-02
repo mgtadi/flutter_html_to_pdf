@@ -16,7 +16,37 @@ class FlutterHtmlToPdf {
 
   /// Creates PDF Document from HTML content
   /// Can throw a [PlatformException] or (unlikely) a [MissingPluginException] converting html to pdf
-  static Future<File> convertFromHtmlContent({
+  static Future<File> convertFromHtmlContentIncWidthandHeight({
+    required String htmlContent,
+    required PrintPdfConfiguration printPdfConfiguration,
+    required int width,
+    required int height,
+  }) async {
+    final File temporaryCreatedHtmlFile =
+        await FileUtils.createFileWithStringContent(
+      htmlContent,
+      printPdfConfiguration.htmlFilePath,
+    );
+    await FileUtils.appendStyleTagToHtmlFile(temporaryCreatedHtmlFile.path);
+
+    final String generatedPdfFilePath = await _convertFromHtmlFilePathIncWidthandHeight(
+      temporaryCreatedHtmlFile.path,
+      printPdfConfiguration.printSize,
+      printPdfConfiguration.printOrientation,
+      width,
+      height,
+    );
+
+    temporaryCreatedHtmlFile.delete();
+
+    return FileUtils.copyAndDeleteOriginalFile(
+      generatedPdfFilePath,
+      printPdfConfiguration.targetDirectory,
+      printPdfConfiguration.targetName,
+    );
+  }
+
+   static Future<File> convertFromHtmlContent({
     required String htmlContent,
     required PrintPdfConfiguration printPdfConfiguration,
   }) async {
@@ -95,6 +125,26 @@ class FlutterHtmlToPdf {
 
     return await _channel.invokeMethod(
       'convertHtmlToPdf',
+      <String, dynamic>{
+        'htmlFilePath': htmlFilePath,
+        'width': width,
+        'height': height,
+        'printSize': printSize.printSizeKey,
+        'orientation': printOrientation.orientationKey,
+      },
+    ) as String;
+  }
+
+  static Future<String> _convertFromHtmlFilePathIncWidthandHeight(
+    String htmlFilePath,
+    PrintSize printSize,
+    PrintOrientation printOrientation,
+    int width,
+    int height,
+  ) async {
+
+    return await _channel.invokeMethod(
+      'convertHtmlToPdfIncWidthHeight',
       <String, dynamic>{
         'htmlFilePath': htmlFilePath,
         'width': width,
