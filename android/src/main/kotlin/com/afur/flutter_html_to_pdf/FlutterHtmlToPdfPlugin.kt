@@ -37,10 +37,10 @@ class FlutterHtmlToPdfPlugin: FlutterPlugin, MethodCallHandler {
 
   private fun convertHtmlToPdfIncWidthAndHeight(call: MethodCall, result: Result) {
     val htmlFilePath = call.argument<String>("htmlFilePath")
-    val printSize = call.argument<String>("printSize")
-    val orientation = call.argument<String>("orientation")
     val width = call.argument<String>("width")
     val height = call.argument<String>("height")
+    val printSize = call.argument<String>("printSize")
+    val orientation = call.argument<String>("orientation")
 
     HtmlToPdfConverter().convertIncWidthAndHeight(htmlFilePath!!, applicationContext, printSize!!, orientation!!,width!!,height!!, object : HtmlToPdfConverter.Callback {
       override fun onSuccess(filePath: String) {
