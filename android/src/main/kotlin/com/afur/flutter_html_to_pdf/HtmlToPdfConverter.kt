@@ -57,7 +57,24 @@ class HtmlToPdfConverter {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             var mediaSize = PrintAttributes.MediaSize.ISO_A4
 
-           
+             when (printSize) {
+                "A0" -> mediaSize = PrintAttributes.MediaSize.ISO_A0
+                "A1" -> mediaSize = PrintAttributes.MediaSize.ISO_A1
+                "A2" -> mediaSize = PrintAttributes.MediaSize.ISO_A2
+                "A3" -> mediaSize = PrintAttributes.MediaSize.ISO_A3
+                "A4" -> mediaSize = PrintAttributes.MediaSize.ISO_A4
+                "A5" -> mediaSize = PrintAttributes.MediaSize.ISO_A5
+                "A6" -> mediaSize = PrintAttributes.MediaSize.ISO_A6
+                "A7" -> mediaSize = PrintAttributes.MediaSize.ISO_A7
+                "A8" -> mediaSize = PrintAttributes.MediaSize.ISO_A8
+                "A9" -> mediaSize = PrintAttributes.MediaSize.ISO_A9
+                "A10" -> mediaSize = PrintAttributes.MediaSize.ISO_A10
+            }
+
+            when (orientation) {
+                "LANDSCAPE" -> mediaSize = mediaSize.asLandscape()
+                "PORTRAIT" -> mediaSize = mediaSize.asPortrait()
+            }
             var margins = PrintAttributes.Margins(
                             (5 * 1000.0).toInt(),
                             (5 * 1000.0 / 72.0).toInt(),
@@ -66,6 +83,8 @@ class HtmlToPdfConverter {
 
             val width1: Int = width.toInt();
             val height1: Int = height.toInt(); 
+            println("Width888= " + width1);
+            println("Height888= " + height1);
             
             mediaSize = PrintAttributes.MediaSize("flutter_printing", "Provided size",
                             ( width1 * 1000.0 / 72.0).toInt(),
