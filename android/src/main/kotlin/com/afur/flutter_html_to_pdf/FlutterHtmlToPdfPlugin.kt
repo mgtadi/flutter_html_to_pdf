@@ -23,7 +23,7 @@ class FlutterHtmlToPdfPlugin: FlutterPlugin, MethodCallHandler {
 
   override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
     if (call.method == "convertHtmlToPdf") {
-      convertHtmlToPdf(call, result)
+      convertHtmlToPdfIncWidthAndHeight(call, result)
     } else if (call.method == "convertHtmlToPdfIncWidthHeight") {
       convertHtmlToPdfIncWidthAndHeight(call, result)
     } else {
