@@ -81,10 +81,10 @@ class HtmlToPdfConverter {
                             (5 * 1000.0 / 72.0).toInt(),
                             (5 * 1000.0 / 72.0).toInt());
 
-            val width1: Int = width.toInt();
-            val height1: Int = height.toInt(); 
-            val width2: Int = (width1 * 1000.0 / 72.0).toInt();
-            val height2: Int = ( height1 * 1000.0 / 72.0).toInt(); 
+            val width2: Int = width.toInt();
+            val height2: Int = height.toInt(); 
+            // val width2: Int = (width1 * 1000.0 / 72.0).toInt();
+            // val height2: Int = ( height1 * 1000.0 / 72.0).toInt(); 
             println("Width888= " + width2);
             println("Height888= " + height2);
             
