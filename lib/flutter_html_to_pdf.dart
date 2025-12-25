@@ -143,12 +143,15 @@ class FlutterHtmlToPdf {
     String height,
   ) async {
 
+    double width1 = double.parse(width);
+    double height1 = double.parse(height);
+
     return await _channel.invokeMethod(
       'convertHtmlToPdf',
       <String, dynamic>{
         'htmlFilePath': htmlFilePath,
-        'width': width,
-        'height': height,
+        'width': width1,
+        'height': height1,
         'printSize': printSize.printSizeKey,
         'orientation': printOrientation.orientationKey,
       },
