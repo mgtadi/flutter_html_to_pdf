@@ -144,7 +144,7 @@ class FlutterHtmlToPdf {
   ) async {
 
     return await _channel.invokeMethod(
-      'convertHtmlToPdfIncWidthHeight',
+      'convertHtmlToPdf',
       <String, dynamic>{
         'htmlFilePath': htmlFilePath,
         'width': width,
