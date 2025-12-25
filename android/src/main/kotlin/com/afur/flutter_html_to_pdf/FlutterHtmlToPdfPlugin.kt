@@ -42,8 +42,6 @@ class FlutterHtmlToPdfPlugin: FlutterPlugin, MethodCallHandler {
     Integer heightInt = call.argument("height");
     String height = String.valueOf(heightInt);
 
-    val width = call.argument<String>("width")
-    val height = call.argument<String>("height")
     val printSize = call.argument<String>("printSize")
     val orientation = call.argument<String>("orientation")
 
